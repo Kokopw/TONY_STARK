@@ -28,7 +28,7 @@ BOT_TOKEN = environ['BOT_TOKEN']
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
-PICS = (environ.get('PICS' ,'https://graph.org/file/92a9cc70ebf72207c577b.mp4 https://graph.org/file/90259d61168ecec25233b.mp4 https://graph.org/file/ce5dff64daf7f828e1ec7.mp4 https://graph.org/file/c438aed389ab6d95a0315.mp4 https://graph.org/file/bd90d044dfccc8a885ab8.mp4 https://graph.org/file/7c9c9804cd308492c4a6f.mp4 https://graph.org/file/516f19f27567c31c0e334.mp4 https://graph.org/file/9ceb91cfe5b7de1e7f9df.mp4 https://graph.org/file/69a7f5f2c4e6d8333e7b3.mp4 https://graph.org/file/f175ddd51895b5b925da0.mp4 https://graph.org/file/d69995d9846fd4ad632b8.jpg')).split()
+PICS = (environ.get('PICS' ,'https://graph.org/file/92a9cc70ebf72207c577b.mp4 https://graph.org/file/90259d61168ecec25233b.mp4 https://graph.org/file/ce5dff64daf7f828e1ec7.mp4 https://graph.org/file/c438aed389ab6d95a0315.mp4 https://graph.org/file/bd90d044dfccc8a885ab8.mp4 https://graph.org/file/7c9c9804cd308492c4a6f.mp4 https://graph.org/file/516f19f27567c31c0e334.mp4 https://graph.org/file/9ceb91cfe5b7de1e7f9df.mp4 https://graph.org/file/69a7f5f2c4e6d8333e7b3.mp4 https://graph.org/file/f175ddd51895b5b925da0.mp4 https://graph.org/file/5bb169fb0433f794c87c8.mp4')).split()
 BOT_START_TIME = time()
 
 # Admins, Channels & Users
