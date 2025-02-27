@@ -28,12 +28,12 @@ BOT_TOKEN = environ['BOT_TOKEN']
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
-PICS = (environ.get('PICS' ,'https://graph.org/file/cbd9e4cba1f0f5f8e2d29.jpg https://graph.org/file/bccb772d2c9f4e8ebe4c1.jpg https://graph.org/file/163186d31cc1eaa5978c9.jpg https://graph.org/file/aad918485ba5b299c2fd6.jpg https://graph.org/file/6e66da1fcae6c0db91b19.jpg https://graph.org/file/5789c7f615b745c7adbb4.jpg https://graph.org/file/9b68f76e8c901e943f170.jpg https://graph.org/file/2c58f9bacbcfea80d980a.jpg https://graph.org/file/dbad69bd40da4bada4a22.jpg https://graph.org/file/a0e7073b34c7e30374737.jpg https://graph.org/file/1240d75e1f8fbb20e5f6c.jpg https://graph.org/file/b3d599697d5744335b2ef.jpg https://graph.org/file/c23a3dff89602abaaf153.jpg https://graph.org/file/e5e8a832cb5dad79b6159.jpg https://graph.org/file/8c878bfbc4541ccc90a4e.jpg https://graph.org/file/69ecc849e74e4269ee8a5.jpg https://graph.org/file/b59140028199ff1f76772.jpg https://graph.org/file/6cab57c7874704d13d93b.jpg https://graph.org/file/be41008e4b132de4d18ac.jpg https://graph.org/file/09df686559a90ce86e1e9.jpg https://graph.org/file/ab098b44b83ea33a7a03f.jpg https://graph.org/file/c57e78a20163621cfa84b.jpg https://graph.org/file/6c48a6abe5b50eb3f6318.jpg')).split()
+PICS = (environ.get('PICS' ,'https://envs.sh/HS9.jpg https://envs.sh/ftb.jpg https://envs.sh/ftI.jpg https://envs.sh/ftp.jpg https://envs.sh/ftj.jpg https://envs.sh/ftc.jpg https://envs.sh/ftL.jpg https://envs.sh/ft5.jpg https://envs.sh/ftK.jpg https://envs.sh/fI7.jpg https://envs.sh/fKA.jpg https://envs.sh/fK_.jpg')).split()
 BOT_START_TIME = time()
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1605422146').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002224002358').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL')
@@ -42,18 +42,18 @@ AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_chan
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://mayofob287:tZqRxnN5TIs9dDeq@cluster0.s5ist.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Dode_files')
 
 #maximum search result buttos count in number#
 MAX_RIST_BTNS = int(environ.get('MAX_RIST_BTNS', "10"))
 START_MESSAGE = environ.get('START_MESSAGE', '👋 𝙷𝙴𝙻𝙾 {user}\n\n𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 {bot},\n𝙸 𝙲𝙰𝙽 𝙿𝚁𝙾𝚅𝙸𝙳𝙴 𝙼𝙾𝚅𝙸𝙴𝚂, 𝙹𝚄𝚂𝚃 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 𝙰𝙽𝙳 𝙼𝙰𝙺𝙴 𝙼𝙴 𝙰𝙳𝙼𝙸𝙽...')
 BUTTON_LOCK_TEXT = environ.get("BUTTON_LOCK_TEXT", "⚠️ 𝙃𝙚𝙮 {query}! 𝙏𝙝𝙖𝙩'𝙨 𝙉𝙤𝙩 𝙁𝙤𝙧 𝙔𝙤𝙪. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙍𝙚𝙦𝙪𝙚𝙨𝙩 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣")
 FORCE_SUB_TEXT = environ.get('FORCE_SUB_TEXT', '𝑱𝒐𝒊𝒏 𝑶𝒖𝒓 𝑴𝒐𝒗𝒊𝒆 𝑼𝒑𝒅𝒂𝒕𝒆𝒔 𝑪𝒉𝒂𝒏𝒏𝒆𝒍 𝑻𝒐 𝑼𝒔𝒆 𝑻𝒉𝒊𝒔 𝑩𝒐𝒕!')
-RemoveBG_API = environ.get("RemoveBG_API", "")
-WELCOM_PIC = environ.get("WELCOM_PIC", "")
-WELCOM_TEXT = environ.get("WELCOM_TEXT", "Hai {user}\nwelcome to {chat}")
+RemoveBG_API = environ.get("RemoveBG_API", "83BxP8UTBVBCL96B7A9qwebV")
+WELCOM_PIC = environ.get("WELCOM_PIC", "https://envs.sh/fKh.mp4")
+WELCOM_TEXT = environ.get("WELCOM_TEXT", "Hey 👋 {user}\nwelcome to {chat}")
 PMFILTER = environ.get('PMFILTER', "True")
 G_FILTER = bool(environ.get("G_FILTER", True))
 BUTTON_LOCK = environ.get("BUTTON_LOCK", "True")
@@ -64,8 +64,8 @@ SHORT_API = environ.get("SHORT_API")
 
 # Others
 IMDB_DELET_TIME = int(environ.get('IMDB_DELET_TIME', "300"))
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'movie_a1')
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', -1002337468642))
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'CharlieSupportGroup')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
 PM_IMDB = environ.get('PM_IMDB', "True")
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
