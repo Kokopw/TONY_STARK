@@ -37,10 +37,14 @@ async def pm_next_page(bot, query):
     except:
         offset = 0
 
-    search = req
-    # Check if the key exists in PM_BUTTONS as a fallback
+    # Use the search term from PM_BUTTONS dictionary
     if key in PM_BUTTONS:
         search = PM_BUTTONS[key]
+    else:
+        # If key doesn't exist in PM_BUTTONS, use req as fallback
+        search = req
+        # Store it for future use
+        PM_BUTTONS[key] = search
 
     files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
     try:
@@ -149,7 +153,8 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         PM_BUTTONS[key] = search
-        req = search  # Store the search term directly
+        # Use a simplified version of search as req to avoid special characters in callback data
+        req = "query"  # Just use a placeholder, we'll retrieve from PM_BUTTONS
         btn.append(
             [InlineKeyboardButton(text=f"📄 𝗣𝗮𝗴𝗲 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
             InlineKeyboardButton(text="𝗡𝗲𝘅𝘁 ➡️", callback_data=f"pmnext_{req}_{key}_{offset}")]
