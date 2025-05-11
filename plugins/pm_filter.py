@@ -37,15 +37,9 @@ async def pm_next_page(bot, query):
     except:
         offset = 0
 
-    # Check if the search key exists, if not, fetch new results
-    if key not in PM_BUTTONS:
-        files, n_offset, total = await get_search_results(req, offset=0, filter=True)
-        if not files:
-            await query.answer("No results found!", show_alert=True)
-            return
-        PM_BUTTONS[key] = req  # Store new request key
-        search = req
-    else:
+    search = req
+    # Check if the key exists in PM_BUTTONS as a fallback
+    if key in PM_BUTTONS:
         search = PM_BUTTONS[key]
 
     files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
@@ -155,7 +149,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         PM_BUTTONS[key] = search
-        req = message.from_user.id if message.from_user else 0
+        req = search  # Store the search term directly
         btn.append(
             [InlineKeyboardButton(text=f"📄 𝗣𝗮𝗴𝗲 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
             InlineKeyboardButton(text="𝗡𝗲𝘅𝘁 ➡️", callback_data=f"pmnext_{req}_{key}_{offset}")]
@@ -275,6 +269,3 @@ async def pm_spoll_choker(msg):
     btn = [[InlineKeyboardButton(text=movie.strip(), callback_data=f"pmspolling#{user}#{k}")] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'pmspolling#{user}#close_spellcheck')])
     await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?", reply_markup=InlineKeyboardMarkup(btn), reply_to_message_id=msg.id)
-
-
-
